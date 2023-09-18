@@ -1,0 +1,1 @@
+ utils/liblvgl_utils.a lib/liblvgl.a lib/liblv_drivers.a screen/ui/libui.a screen/lvgl/liblvgl_examples.a screen/lvgl/liblvgl_demos.a -lmingw32 -lSDL2main -lSDL2 lib/liblvgl.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

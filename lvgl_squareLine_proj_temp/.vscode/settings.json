@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "common.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "time.h": "c",
+        "windows.h": "c",
+        "inca.h": "c",
+        "socket.h": "c",
+        "types.h": "c",
+        "string.h": "c",
+        "winsock.h": "c",
+        "unistd.h": "c",
+        "ws2tcpip.h": "c",
+        "winsock2.h": "c",
+        "digitalv.h": "c",
+        "mmsystem.h": "c",
+        "sndfile.h": "c",
+        "demosandexamples.h": "c"
+    }
+}

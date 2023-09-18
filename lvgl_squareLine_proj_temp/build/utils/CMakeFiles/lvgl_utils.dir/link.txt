@@ -1,0 +1,2 @@
+D:/toolchain/mingw64/bin/ar.exe qc liblvgl_utils.a CMakeFiles/lvgl_utils.dir/demosAndExamples.c.obj CMakeFiles/lvgl_utils.dir/win_hal_init.c.obj
+D:/toolchain/mingw64/bin/ranlib.exe liblvgl_utils.a

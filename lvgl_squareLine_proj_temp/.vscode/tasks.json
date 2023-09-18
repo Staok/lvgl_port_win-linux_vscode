@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },  // 指定命令执行所在路径
+    "tasks": [
+        {
+            "label": "(inner) build & run file",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-G",
+                "Unix Makefiles",
+                ".."
+            ],
+        },
+        {
+            "label": "build & run file",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                ".",
+                "-j4"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            // 指定，在执行 "cmake --build ." 之前，需先执行 "(inner) build & run file"
+            // 参考 https://www.cnblogs.com/liudianfengmang/p/12458108.html
+            "dependsOn":["(inner) build & run file"], 
+        },
+    ]
+}

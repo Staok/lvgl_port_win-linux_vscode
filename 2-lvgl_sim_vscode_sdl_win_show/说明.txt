@@ -1,0 +1,18 @@
+# 构建 & 编译 & 运行
+# 在 build 文件夹 里面 执行：
+# cd build
+# cmake -G "Unix Makefiles" ..
+# cmake --build . -j4
+# ./test_lvgl_win_sdl2.exe
+
+// 参考 https://my.oschina.net/u/5732601/blog/5518641
+// 参考 https://www.bilibili.com/read/cv24941063/
+
+/* 说明：关于 SDL2 库的配置看 “1-SDL2_lib_text_show” 文件夹里面
+
+   这里的 lvgl 目录，以及 lv_drivers 不是 github 最新的结构
+    这里仅是我学习 cmake 和 lvgl 工程结构，跑一跑看看效果的 中间过程
+
+   lvgl 有个 “lv_port_pc_vscode” 仓库 https://github.com/lvgl/lv_port_pc_vscode
+      但是也比较老了，适合学习
+*/

@@ -1,0 +1,25 @@
+p.s 这里就不用 MarkDown 写了，不如这个记事本能快速打开看方便
+
+特性 & 需求：
+	0、使用 cmake 构建工程，构建命令见 顶层 CMakeLists.txt 里面的注释
+	1、win 上用 VsCode 直接运行 以及 调试（VsCode 里 直接 按 F5 运行 task）
+	2、可在 嵌入式 linux 设备 上跑（暂基于 fb）（暂无）
+	3、使用 SquareLine 软件 设计 LVGL 前端界面，将生成的界面代码放到 ui 文件夹下，就可以跑起来~
+	4、可方便的控制是否编译 demo 和 example，在 lv_conf.h 中 用 LV_BUILD_EXAMPLES 和 LV_USE_DEMOS 来控制。
+
+使用说明：
+	保持使用的 lvgl 先相关开源代码是较新的（视自己情况，从官方 github 仓库下）：
+		lvgl 		从 github 仓库 release 的 tag 下载
+		lv_drivers 从	从 github 仓库 的 release 分支下载（因为其没有放 最新版本的 tag）
+		ui 文件夹 		SquareLine 软件导出，该文件夹任何改动会被 SquareLine 生成文件时覆盖
+		对于 lvgl 和 lv_drivers 的 lv_conf.h 和 lv_drv_conf.h 配置文件，也要从 新下载的源码中拿出来，用 对比工具 与 原有的作比较，手动合并
+
+	关于 SDL2 库的配置看 “1-SDL2_lib_text_show” 文件夹里面
+
+	使用 SquareLine 导出工程：
+		建议首先打开 FQ VPN，SquareLine 软件需要 顺畅的连接 Github 下载必要东西
+		然后从 SquareLine 图标打开，而不是 SquareLine 工程文件夹 里面点击工程文件打开，前者可以正常读到 github 等信息，后者不行
+		导出会在当前选中的文件夹，新建一个 工程同名的文件夹，往里导出
+		其导出的 VsCode 工程是不能直接用的，缺少 比如 lv_driver 文件夹 等东西（网原因或者历史原因等），因此
+		    我们不用其工程，只用导出的 ui 文件夹，这个手动放到 screen\ui 文件夹里，就能跑
+			或许可以写个脚本 完成这个（暂无）
