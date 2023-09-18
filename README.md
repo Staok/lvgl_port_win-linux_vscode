@@ -17,7 +17,7 @@
 
 我的一个 VsCode 跑一跑 C/C++ 程序的工程模板：见 [VsCode temp Proj(github.com)](https://github.com/Staok/coding-style-and-more/tree/main/VsCode temp Proj) 或  [VsCode temp Proj(gitee.com](https://gitee.com/staok/coding-style-and-more/tree/main/VsCode temp Proj)。
 
-### 仓库使用
+### 使用
 
 github 仓库 https://github.com/Staok/lvgl_port_win_vscode。
 
@@ -39,6 +39,6 @@ lvgl_squareLine_proj_temp 作为通用的 lvgl 工程模板，目标是 一个�
 
 ### 效果
 
-F5 一键——启动！
+一键 F5 —— 启动！
 
 ![run_show](README.assets/run_show.png)
