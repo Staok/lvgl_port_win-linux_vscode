@@ -13,15 +13,20 @@
 
 ### 环境
 
-首先，需要 pc 安装有 mingw-w64 和 cmake，以及 VsCode（带 `C/C++`、`C/C++ Extension Pack`、 `CMake` 等相关常用插件）。
+首先，需要 win 有 mingw-w64 和 cmake 等基本环境，以及 VsCode（带 `C/C++`、`C/C++ Extension Pack`、 `CMake` 等相关常用插件）。
 
-我的一个 VsCode 跑一跑 C/C++ 程序的工程模板：见 [VsCode temp Proj(github.com)](https://github.com/Staok/coding-style-and-more/tree/main/VsCode temp Proj) 或  [VsCode temp Proj(gitee.com](https://gitee.com/staok/coding-style-and-more/tree/main/VsCode temp Proj)。
+我的一个 VsCode 跑一跑 C/C++ 程序的工程模板：
+
+- [coding-style-and-more/VsCode temp Proj at main · Staok/coding-style-and-more (github.com)](https://github.com/Staok/coding-style-and-more/tree/main/VsCode temp Proj)
+- [coding-style-and-more: C 编写规范和其他。永远地不定期更新。CC-BY-NC-SA 4.0。 - Gitee.com](https://gitee.com/staok/coding-style-and-more/tree/main/VsCode temp Proj)
 
 ### 使用
 
-github 仓库 https://github.com/Staok/lvgl_port_win_vscode。
+github 仓库 https://github.com/Staok/lvgl_port_win_vscode
 
-gitee 仓库 https://gitee.com/staok/lvgl_port_win_vscode。
+gitee 仓库 https://gitee.com/staok/lvgl_port_win_vscode
+
+
 
 三个文件夹，为三个独立工程，分别可独立 编译 & 运行；每个文件夹里面都有说明，要看。
 
