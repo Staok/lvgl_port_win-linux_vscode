@@ -17,6 +17,8 @@
         "digitalv.h": "c",
         "mmsystem.h": "c",
         "sndfile.h": "c",
-        "demosandexamples.h": "c"
+        "demosandexamples.h": "c",
+        "periodic_running_basic.h": "c",
+        "win_hal_init.h": "c"
     }
 }

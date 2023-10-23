@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "lvgl/lvgl.h"
 #include "ui/ui.h"
@@ -8,6 +7,7 @@
 
 #include "win_hal_init.h"
 #include "demosAndExamples.h"
+#include "periodic_running_basic.h"
 
 /*
     编译 & 运行 方式：
@@ -32,12 +32,32 @@ int main(int argc, char **argv)
     // ui_init();
 
     while(1) {
-        /* Periodically call the lv_task handler.
-        * It could be done in a timer interrupt or an OS task too.*/
+        lv_timer_handler_run_in_period(5);
 
-        // 下面两种方式都可以
-        // lv_timer_handler(); usleep( 5000 );  // 方式一。若 写成 usleep( lv_timer_handler() ); 会很占 cpu
-        lv_timer_handler_run_in_period(5);      // 方式二, 省 cpu
+        if(get_is_50ms())
+        {
+            clear_is_50ms_flag();
+            // do something 50ms periodically
+        }
+
+        if(get_is_100ms())
+        {
+            clear_is_100ms_flag();
+            // do something 100ms periodically
+        }
+
+        if(get_is_500ms())
+        {
+            clear_is_500ms_flag();
+            // do something 500ms periodically
+        }
+
+        if(get_is_1s())
+        {
+            clear_is_1s_flag();
+            // do something 1s periodically
+            // LV_LOG_USER("1s passed~");
+        }
     }
 
     return 0;

@@ -1,12 +1,15 @@
 #include "win_hal_init.h"
+#include "periodic_running_basic.h"
 
+#include <stdio.h>
 
 static int tick_thread(void *data)
 {
     (void)data;
     while(1) {
-        SDL_Delay(5);
-        lv_tick_inc(5);
+        SDL_Delay(PERIODIC_TIME_IN_MS);
+        lv_tick_inc(PERIODIC_TIME_IN_MS);
+        periodic_running_basic_inc(PERIODIC_TIME_IN_MS);
     }
     return 0;
 }

@@ -9,6 +9,7 @@ project(lvgl_utils)
 set(SOURCES_FILES
     demosAndExamples.c
     win_hal_init.c
+    periodic_running_basic.c
 )
 
 # set(HEAD_FILES_DIR 生成库用不到带着头文件
