@@ -80,13 +80,20 @@
  *  DISPLAY DRIVERS
  *********************/
 
+/*
+    下面的 display drv，只选一个
+    USE_SDL  USE_WINDOWS USE_WIN32DRV
+
+    USE_SDL 需要系统添加 SDL2 库，见最外层 CMakeLists.txt 里面的注释
+*/ 
+
 /*-------------------
  *  SDL
  *-------------------*/
 
 /* SDL based drivers for display, mouse, mousewheel and keyboard*/
 #ifndef USE_SDL
-# define USE_SDL 1
+# define USE_SDL 0
 #endif
 
 /* Hardware accelerated SDL driver */
@@ -117,7 +124,7 @@
  *-------------------*/
 
 /*DEPRECATED: Use the SDL driver instead. */
-#ifndef USE_MONITOR
+#ifndef USE_MONITOR              // 其实就是调用 sdl，不用开
 #  define USE_MONITOR         0
 #endif
 
@@ -143,12 +150,12 @@
  *  Native Windows (including mouse)
  *----------------------------------*/
 #ifndef USE_WINDOWS
-#  define USE_WINDOWS       0
+#  define USE_WINDOWS       1
 #endif
 
 #if USE_WINDOWS
-#  define WINDOW_HOR_RES      480
-#  define WINDOW_VER_RES      320
+#  define WINDOW_HOR_RES      800
+#  define WINDOW_VER_RES      500
 #endif
 
 /*----------------------------

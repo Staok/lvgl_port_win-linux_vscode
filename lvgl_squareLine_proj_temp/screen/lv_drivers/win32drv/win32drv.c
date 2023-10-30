@@ -12,6 +12,7 @@
 #if USE_WIN32DRV
 
 #include <windowsx.h>
+#include <synchapi.h>
 #include <process.h>
 #include <stdbool.h>
 #include <stdint.h>

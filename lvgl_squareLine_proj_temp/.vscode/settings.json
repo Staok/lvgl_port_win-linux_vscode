@@ -19,6 +19,13 @@
         "sndfile.h": "c",
         "demosandexamples.h": "c",
         "periodic_running_basic.h": "c",
-        "win_hal_init.h": "c"
+        "win_hal_init.h": "c",
+        "win_drv.h": "c",
+        "lv_drv_conf.h": "c",
+        "lvgl.h": "c",
+        "lv_printf.h": "c",
+        "lv_hal.h": "c",
+        "sdl.h": "c",
+        "synchapi.h": "c"
     }
 }

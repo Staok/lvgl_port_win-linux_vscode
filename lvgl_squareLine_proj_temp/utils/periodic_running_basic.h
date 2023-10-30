@@ -3,13 +3,12 @@
 
 #define PERIODIC_TIME_IN_MS 5
 
-extern unsigned int count_ms;
+// extern unsigned int count_ms;
 
-extern char is_50ms;
-extern char is_100ms;
-extern char is_500ms;
-extern char is_1s;
-
+// extern char is_50ms;
+// extern char is_100ms;
+// extern char is_500ms;
+// extern char is_1s;
 
 void periodic_running_basic_inc(unsigned int inc_ms);
 
