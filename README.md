@@ -9,6 +9,14 @@
 
 全部使用 手写的 cmake 构建，具有 学习 和 实践使用 意义。
 
+
+
+本仓库地址：
+
+github 仓库 https://github.com/Staok/lvgl_port_win_vscode
+
+gitee 仓库 https://gitee.com/staok/lvgl_port_win_vscode
+
 ## 使用说明
 
 ### 环境
@@ -17,13 +25,43 @@
 
 我的一个 VsCode 跑一跑 C/C++ 程序的工程模板：见 [Staok/coding-style-and-more(github.com)](https://github.com/Staok/coding-style-and-more) 或 [Gitee](https://gitee.com/staok/coding-style-and-more) ，在 VsCode temp Proj 文件夹。
 
+
+
+**win 下基本工具下载地址汇总**
+
+p.s 工具下载后 bin 目录放到 环境变量里，win 和 linux 同理。
+
+
+
+**mingw-w64**
+
+[Downloads - MinGW-w64](https://www.mingw-w64.org/downloads/)。
+
+往下拉找到 `Tarballs for the mingw-w64 sources are hosted on SourceForge.`，点开其中的 `SourceForge`。
+
+进入 [MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net](https://sourceforge.net/projects/mingw-w64/files/)，下面找到 `MinGW-W64-install.exe`，安装即可。
+
+具体安装流程介绍 [MinGW-w64的安装及配置教程_mingw64-CSDN博客](https://blog.csdn.net/didi_ya/article/details/111240502)。
+
+
+
+**make**
+
+[Make for Windows (sourceforge.net)](https://gnuwin32.sourceforge.net/packages/make.htm)。
+
+这个win gnu make下载地址最后是3.81(2006年)，最新的可以用 mingw-w64 里面的 mingw32-make.exe，复制一份改名 make.exe 即可
+
+
+
+**cmake**
+
+[Download CMake](https://cmake.org/download/#latest)，win 平台下载 `Windows x64 ZIP` 即可。
+
+p.s 在 在 VSCode 里面，要使用 gitbash 来执行 cmake 等命令，使用 powershell 执行 可能会有各种问题。。
+
+
+
 ### 使用
-
-github 仓库 https://github.com/Staok/lvgl_port_win_vscode
-
-gitee 仓库 https://gitee.com/staok/lvgl_port_win_vscode
-
-
 
 三个文件夹，为三个独立工程，分别可独立 编译 & 运行；每个文件夹里面都有说明，要看。
 
