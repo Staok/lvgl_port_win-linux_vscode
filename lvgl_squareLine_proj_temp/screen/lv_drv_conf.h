@@ -81,10 +81,10 @@
  *********************/
 
 /*
-    下面的 display drv，只选一个
-    USE_SDL  USE_WINDOWS USE_WIN32DRV
-
-    USE_SDL 需要系统添加 SDL2 库，见最外层 CMakeLists.txt 里面的注释
+    对于 win，下面的 display drv，选择一个打开
+        USE_SDL - USE_WINDOWS - USE_WIN32DRV(编译有各种问题，不用了)
+            USE_SDL 需要系统添加 SDL2 库，见最外层 CMakeLists.txt 里面的注释
+    对于 linux 配置，见 lv_drv_conf_linux.h
 */ 
 
 /*-------------------
@@ -102,8 +102,8 @@
 #endif
 
 #if USE_SDL || USE_SDL_GPU
-#  define SDL_HOR_RES     800
-#  define SDL_VER_RES     500
+#  define SDL_HOR_RES     1280
+#  define SDL_VER_RES     720
 
 /* Scale window by this factor (useful when simulating small screens) */
 #  define SDL_ZOOM        1
@@ -150,12 +150,12 @@
  *  Native Windows (including mouse)
  *----------------------------------*/
 #ifndef USE_WINDOWS
-#  define USE_WINDOWS       1
+#  define USE_WINDOWS       0
 #endif
 
 #if USE_WINDOWS
-#  define WINDOW_HOR_RES      800
-#  define WINDOW_VER_RES      500
+#  define WINDOW_HOR_RES      1280
+#  define WINDOW_VER_RES      720
 #endif
 
 /*----------------------------
@@ -463,13 +463,13 @@
 #  define EVDEV_NAME   "/dev/input/event0"        /*You can use the "evtest" Linux tool to get the list of devices and test them*/
 #  define EVDEV_SWAP_AXES         0               /*Swap the x and y axes of the touchscreen*/
 
-#  define EVDEV_CALIBRATE         0               /*Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis*/
+#  define EVDEV_CALIBRATE         1               /*Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis*/
 
 #  if EVDEV_CALIBRATE
 #    define EVDEV_HOR_MIN         0               /*to invert axis swap EVDEV_XXX_MIN by EVDEV_XXX_MAX*/
-#    define EVDEV_HOR_MAX      4096               /*"evtest" Linux tool can help to get the correct calibraion values>*/
+#    define EVDEV_HOR_MAX      1280               /*"evtest" Linux tool can help to get the correct calibraion values>*/
 #    define EVDEV_VER_MIN         0
-#    define EVDEV_VER_MAX      4096
+#    define EVDEV_VER_MAX       720
 #  endif  /*EVDEV_CALIBRATE*/
 #endif  /*USE_EVDEV*/
 

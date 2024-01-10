@@ -7,24 +7,28 @@ project(lvgl_utils)
 
 # 添加本目录下所有源文件
 set(SOURCES_FILES
-    demosAndExamples.c
-    win_hal_init.c
-    periodic_running_basic.c
+    lv_demosAndExamples.c
+    lv_proj_hal_init.c
 )
 
-# set(HEAD_FILES_DIR 生成库用不到带着头文件
-#     .
+# set(HEAD_FILES_DIR
 # )
 
-add_library(${PROJECT_NAME} 
-    STATIC
-        ${SOURCES_FILES}
-        # ${SRC}
+add_library(${PROJECT_NAME} STATIC
+    ${SOURCES_FILES}
+    # ${SRC}
 )
 
+# for this proj
 # target_include_directories(${PROJECT_NAME}
-#     ${PROJECT_SOURCE_DIR}
+#     ${CMAKE_CURRENT_SOURCE_DIR}
 #     ${HEAD_FILES_DIR}
+# )
+
+# for all proj
+# include_directories(
+#     ${CMAKE_CURRENT_SOURCE_DIR}
+#     # ${HEAD_FILES_DIR}
 # )
 
 

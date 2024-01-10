@@ -1,5 +1,5 @@
 # lvgl_port_win_vscode
-在 win 平台对 lvgl 方便的进行模拟显示，程序文件结构清晰，lvgl with SDL2，cmake 构建，VsCode 一键运行，使用 SquareLine 生成前端 UI 文件，win 上直接跑。
+LVGL移植win端（SDL或windrv）模拟显示流畅解决方案，并且同时支持linux端（DRM或FB）。VsCode工程，cmake 构建，可 F5 一键运行。使用 SquareLine 生成前端 UI 文件。
 
 相比官方的 lvgl 移植到 win 端的几种方法 [Simulator on PC — LVGL documentation](https://docs.lvgl.io/8.3/get-started/platforms/pc-simulator.html)，本仓库带来更好的 lvgl 在 win 端的模拟显示 体验！
 

@@ -294,7 +294,7 @@ static void sdl_event_handler(lv_timer_t * t)
     /*Run until quit event not arrives*/
     if(sdl_quit_qry) {
         monitor_sdl_clean_up();
-        exit(0);
+        // exit(0); no need you here force exit...
     }
 }
 

@@ -47,8 +47,6 @@ extern lv_disp_t *lv_windows_disp;
 
 HWND windrv_init(void);
 
-void win_drv_loop_run();
-
 /**********************
  *      MACROS
  **********************/

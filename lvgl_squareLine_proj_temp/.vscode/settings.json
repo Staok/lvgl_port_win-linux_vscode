@@ -26,6 +26,19 @@
         "lv_printf.h": "c",
         "lv_hal.h": "c",
         "sdl.h": "c",
-        "synchapi.h": "c"
+        "synchapi.h": "c",
+        "ui.h": "c",
+        "vector": "c",
+        "xstring": "c",
+        "xutility": "c",
+        "iosfwd": "c",
+        "lv_example_scroll.h": "c",
+        "lv_proj_hal_init.h": "c",
+        "lv_demosandexamples.h": "c",
+        "initializer_list": "c",
+        "xiosbase": "c",
+        "drm.h": "c",
+        "fbdev.h": "c",
+        "evdev.h": "c"
     }
 }

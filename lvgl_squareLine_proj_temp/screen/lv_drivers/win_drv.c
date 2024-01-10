@@ -31,11 +31,11 @@
  *  STATIC PROTOTYPES
  **********************/
 static void do_register(void);
-static void win_drv_flush(lv_disp_t *drv, lv_area_t *area, const lv_color_t * color_p);
+static void win_drv_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t * color_p);
 static void win_drv_fill(int32_t x1, int32_t y1, int32_t x2, int32_t y2, lv_color_t color);
 static void win_drv_map(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const lv_color_t * color_p);
-static void win_drv_read(lv_indev_t *drv, lv_indev_data_t * data);
-static void msg_handler(void *param);
+static void win_drv_read(lv_indev_drv_t * drv, lv_indev_data_t * data);
+static void msg_handler(struct _lv_timer_t *t);
 
 static COLORREF lv_color_to_colorref(const lv_color_t color);
 
@@ -66,11 +66,6 @@ static int mouse_x, mouse_y;
  *   GLOBAL FUNCTIONS
  **********************/
 const char g_szClassName[] = "LVGL";
-
-void win_drv_loop_run()
-{
-    msg_handler(NULL);
-}
 
 HWND windrv_init(void)
 {
@@ -125,7 +120,8 @@ HWND windrv_init(void)
     ShowWindow(hwnd, SW_SHOWDEFAULT);
     UpdateWindow(hwnd);
 
-    // lv_task_create(msg_handler, 0, LV_TASK_PRIO_HIGHEST, NULL);
+    // lv_task_create(msg_handler, 0, LV_TASK_PRIO_HIGHEST, NULL); this is old api not supported
+    lv_timer_create(msg_handler, 10, NULL);
     lv_win_exit_flag = false;
     do_register();
 }
@@ -169,9 +165,9 @@ static void do_register(void)
     lv_indev_drv_register(&indev_drv);
 }
 
-static void msg_handler(void *param)
+static void msg_handler(struct _lv_timer_t *t)
 {
-    (void)param;
+    (void)t;
 
     MSG msg;
     BOOL bRet;
@@ -191,7 +187,7 @@ static void msg_handler(void *param)
     }
 }
 
- static void win_drv_read(lv_indev_t *drv, lv_indev_data_t * data)
+ static void win_drv_read(lv_indev_drv_t * drv, lv_indev_data_t * data)
 {
     data->state = mouse_pressed ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
     data->point.x = mouse_x;
@@ -225,7 +221,7 @@ static void msg_handler(void *param)
  * @param y2 bottom coordinate
  * @param color_p an array of colors
  */
-static void win_drv_flush(lv_disp_t *drv, lv_area_t *area, const lv_color_t * color_p)
+static void win_drv_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t * color_p)
 {
     win_drv_map(area->x1, area->y1, area->x2, area->y2, color_p);
     lv_disp_flush_ready(drv);
@@ -262,9 +258,8 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
         fbp = malloc(4*WINDOW_HOR_RES*WINDOW_VER_RES);
         if(fbp == NULL)
             return 1;
-        SetTimer(hwnd, 0, 10, (TIMERPROC)lv_task_handler);
-        SetTimer(hwnd, 1, 25, NULL);
-
+        // SetTimer(hwnd, 0, 25, (TIMERPROC)lv_timer_handler); not work here
+        // SetTimer(hwnd, 1, 10, NULL);
         return 0;
     case WM_MOUSEMOVE:
     case WM_LBUTTONDOWN:
@@ -284,7 +279,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
         on_paint();
         return 0;
     case WM_TIMER:
-        lv_tick_inc(25);
+        // lv_tick_inc(25); not work here
         return 0;
     case WM_DESTROY:
         PostQuitMessage(0);
