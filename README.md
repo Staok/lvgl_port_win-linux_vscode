@@ -5,7 +5,7 @@ LVGL移植win端（SDL或windrv）模拟显示流畅解决方案，并且同时�
 
 使用 SquareLine 生成前端 UI 文件，win 上直接跑。
 
-仓库约 260MB 大小。
+仓库约 230MB 左右。
 
 全部使用 手写的 cmake 构建，具有 学习 和 实践使用 意义。
 
