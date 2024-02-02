@@ -5,7 +5,7 @@ LVGL移植win端（SDL或windrv）模拟显示流畅解决方案，并且同时�
 
 使用 SquareLine 生成前端 UI 文件，win 上直接跑。
 
-仓库约 230MB 左右。
+仓库约 240MB 左右，因为直接包含了 LVGL 相关库源文件，直接 git clone 或者 下载 压缩包 就能开始运行。
 
 全部使用 手写的 cmake 构建，具有 学习 和 实践使用 意义。
 
@@ -43,6 +43,8 @@ p.s 工具下载后 bin 目录放到 环境变量里，win 和 linux 同理。
 
 具体安装流程介绍 [MinGW-w64的安装及配置教程_mingw64-CSDN博客](https://blog.csdn.net/didi_ya/article/details/111240502)。
 
+或者用 clang 编也行。
+
 
 
 **make**
@@ -73,7 +75,7 @@ p.s 在 在 VSCode 里面，要使用 gitbash 来执行 cmake 等命令，使用
 
 lvgl_squareLine_proj_temp 目前还只支持在 win 端运行。
 
-lvgl_squareLine_proj_temp 作为通用的 lvgl 工程模板，目标是 一个文件夹， win 端 和 嵌入式linux 端 或 mcu 端（经过交叉编译）均可以跑，即 pc 上 模拟显示 & 反复调整，下载到 嵌入式 linux 板子 或 mcu 板子 就跑。并且 UI 的前后端分离。做到通用化的一个 lvgl 小模板、小框架。
+lvgl_squareLine_proj_temp 作为通用的 lvgl 工程模板，目标是 一个文件夹， win 端 和 嵌入式linux 端 或 mcu 端（经交叉编译）均可以跑，即 pc 上 模拟显示 & 反复调整，下载到 嵌入式 linux 板子 或 mcu 板子 就跑。并且 UI 的前后端分离。做到通用化的一个 lvgl 小模板、小框架。
 
 
 

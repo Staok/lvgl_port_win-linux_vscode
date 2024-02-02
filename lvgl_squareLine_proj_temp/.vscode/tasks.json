@@ -5,31 +5,66 @@
     },  // 指定命令执行所在路径
     "tasks": [
         {
-            "label": "(inner) build & run file",
+            "label": "(inner)cmake(debug)",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "-G",
-                "Unix Makefiles",
-                ".."
-            ],
+                "MinGW Makefiles",
+                "..",
+                "-DCOMPILE_DEBUG=ON"
+            ]
         },
         {
-            "label": "build & run file",
+            "label": "(inner)make(debug)",
+            "type": "shell",
+            "command": "mingw32-make.exe", // need use cmake -G "MinGW Makefiles" .., use "Unix Makefiles" will not work
+            "args": [
+                "-j16"
+            ],
+            // or the cmd below is the same
+            // "command": "cmake",
+            // "args": [
+            //     "--build . -j16"
+            // ],
+            "dependsOn":[
+                "(inner)cmake(debug)"
+            ],
+        },
+
+        {
+            "label": "(inner)cmake",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "--build",
-                ".",
-                "-j4"
+                "-G",
+                "MinGW Makefiles",
+                ".."
+            ]
+        },
+        {
+            "label": "(inner)make",
+            "type": "shell",
+            "command": "mingw32-make.exe", // need use cmake -G "MinGW Makefiles" .., use "Unix Makefiles" will not work
+            "args": [
+                "-j16"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            // 指定，在执行 "cmake --build ." 之前，需先执行 "(inner) build & run file"
-            // 参考 https://www.cnblogs.com/liudianfengmang/p/12458108.html
-            "dependsOn":["(inner) build & run file"], 
+            // or the cmd below is the same
+            // "command": "cmake",
+            // "args": [
+            //     "--build . -j16"
+            // ],
+            "dependsOn":[
+                "(inner)cmake"
+            ],
+        },
+        {
+            "label": "(inner)run",
+            "type": "shell",
+            "command": "./lvgl_proj.exe",
+            "dependsOn":[
+                "(inner)make"
+            ],
         },
     ]
 }

@@ -1,51 +1,60 @@
 {
+    // 配置参考 https://blog.csdn.net/challenglistic/article/details/133830827
+
     "version": "0.2.0",
     "configurations": 
     [
         {
             "name": "Run lvgl_proj",                            // 配置名称，将会在启动配置的下拉菜单中显示
-            "type": "cppdbg",                                   // 配置类型，这里只能为cppdbg
+            "type": "cppdbg",                                   // 配置类型，这里只能为 cppdbg
             "request": "launch",                                // 请求配置类型，可以为launch（启动）或attach（附加）
-            "program": "${workspaceFolder}\\build\\lvgl_proj.exe",    // 将要进行调试的程序的路径，必须和 tasks.json 里的args "-o"参数后面的参数一致
+            "program": "${workspaceFolder}/build/lvgl_proj.exe",    // 将要进行调试的程序的路径，必须和 tasks.json 里的args "-o"参数后面的参数一致
             "args": [],                                         // 程序调试时传递给程序的命令行参数，一般设为空即可
             "stopAtEntry": false,                               // 设为true时程序将暂停在程序入口处，需要时可以设置为true
-            "cwd": "${workspaceFolder}\\build",                        // 调试程序时的工作目录，当前目录
+            "cwd": "${workspaceFolder}/build",                        // 调试程序时的工作目录，当前目录
             "environment": [],                                  // 环境变量
             "externalConsole": false,                           // 调试时是否显示控制台窗口，一般设置为 true，单独显示控制台窗口
             "MIMode": "gdb",                                    // 指定连接的调试器，可以为 gdb 或 lldb。一般不用动
-            "miDebuggerPath": "D:\\toolchain\\mingw64\\bin\\gdb.exe",      // 调试器路径，Windows下后缀不能省略，Linux下则不要
+            "miDebuggerPath": "D:/toolchain/mingw64/bin/gdb.exe",      // 调试器路径，Windows下后缀不能省略，Linux下则不要
             "setupCommands":                                    // Vscode 模板给出
-            [                                  
+            [
                 {
                     "description": "为 gdb 启用整齐打印",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build & run file"                  // 调试会话开始前执行的任务，一般为编译程序。与 tasks.json 的 label 相对应
+            "preLaunchTask": "(inner)make"                  // 调试会话开始前执行的任务，一般为编译程序。与 tasks.json 的 label 相对应
         },
-        // GUI 单步调试界面会卡，所以这里暂不用 gdb 了，还是多打 log 尽量调试吧
-        // {
-        //     "name": "Debug lvgl_proj",
-        //     "type": "cppdbg",
-        //     "request": "launch",
-        //     "program": "${workspaceFolder}\\build\\lvgl_proj.exe",
-        //     "args": [],
-        //     "stopAtEntry": false,
-        //     "cwd": "${workspaceFolder}\\build",
-        //     "environment": [],
-        //     "externalConsole": false,
-        //     "MIMode": "gdb",
-        //     "miDebuggerPath": "D:\\toolchain\\mingw64\\bin\\gdb.exe",      // 调试器路径
-        //     "setupCommands": 
-        //     [
-        //         {
-        //             "description": "Enable pretty-printing for gdb",
-        //             "text": "-enable-pretty-printing",
-        //             "ignoreFailures": false
-        //         }
-        //     ],
-        //     "preLaunchTask": "build & debug file"               // 调试会话开始前执行的任务，一般为编译程序。与 tasks.json 的 label 相对应
-        // }
+        // GUI 单步调试界面会卡，可以多打 log 调试
+        {
+            "name": "Debug lvgl_proj",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/lvgl_proj.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:/toolchain/mingw64/bin/gdb.exe",      // 调试器路径
+            "setupCommands": 
+            [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "(inner)make(debug)"               // 调试会话开始前执行的任务，一般为编译程序。与 tasks.json 的 label 相对应
+        },
+        // rm build dir contents, use poweshell 
+        {
+            "name": "rm build dir",
+            "command": "Remove-Item -Path \"build\" -Recurse -Force; New-Item -Type Directory \"build\"",
+            "request": "launch",
+            "type": "node-terminal"
+        },
     ]
 }
