@@ -21,13 +21,15 @@ gitee 仓库 https://gitee.com/staok/lvgl_port_win_vscode
 
 ### 环境
 
-首先，需要 win 有 mingw-w64 和 cmake 等基本环境，以及 VsCode（带 `C/C++`、`C/C++ Extension Pack`、 `CMake` 等相关常用插件）。
+首先，需要 win 有 mingw-w64、make 和 cmake 等基本环境，以及 VsCode（带 `C/C++`、`C/C++ Extension Pack`、 `CMake` 等相关常用插件）。
 
 我的一个 VsCode 跑一跑 C/C++ 程序的工程模板：见 [Staok/coding-style-and-more(github.com)](https://github.com/Staok/coding-style-and-more) 或 [Gitee](https://gitee.com/staok/coding-style-and-more) ，在 VsCode temp Proj 文件夹。
 
 
 
 **win 下基本工具下载地址汇总**
+
+若你的电脑已经有 下面的工具链，则 略过 本节。
 
 p.s 工具下载后 bin 目录放到 环境变量里，win 和 linux 同理。
 
@@ -43,6 +45,20 @@ p.s 工具下载后 bin 目录放到 环境变量里，win 和 linux 同理。
 
 具体安装流程介绍 [MinGW-w64的安装及配置教程_mingw64-CSDN博客](https://blog.csdn.net/didi_ya/article/details/111240502)。
 
+
+
+注意上面下载到的 最高只到 8.1.0 版本（截止到24.3），这个版本比较早了 对于一些 c++ 库支持不好。
+
+
+
+下载最新版的 MinGW-w64：
+
+MinGW-w64 在官方有多个版本，选择 `mingw-builds` 版本即可 https://www.mingw-w64.org/downloads/#mingw-builds，
+
+直接到其 github 页的 Releases 选择 最新版的 压缩包直接用即可。
+
+
+
 或者用 clang 编也行。
 
 
@@ -51,7 +67,13 @@ p.s 工具下载后 bin 目录放到 环境变量里，win 和 linux 同理。
 
 [Make for Windows (sourceforge.net)](https://gnuwin32.sourceforge.net/packages/make.htm)。
 
-这个win gnu make下载地址最后是3.81(2006年)，最新的可以用 mingw-w64 里面的 mingw32-make.exe，复制一份改名 make.exe 即可
+这个win gnu make下载地址最后是3.81(2006年)。
+
+
+
+上面下载到的版本也比较老 所以也不建议用了。
+
+最新的可以用 mingw-w64 里面 bin 目录下的 `mingw32-make.exe`，复制一份放在同文件夹下改名 `make.exe` 即可
 
 
 
